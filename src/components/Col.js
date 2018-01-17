@@ -1,6 +1,6 @@
 
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import emotion from 'preact-emotion'
 import isInteger from 'lodash.isinteger'
 
 import config, { DIMENSION_NAMES } from '../config'
@@ -14,7 +14,7 @@ const DimensionPropTypes = DIMENSION_NAMES.reduce((propTypes, dimension) => {
   return propTypes
 }, {})
 
-const Col = styled.div`
+const Col = emotion('div')`
   box-sizing: border-box;
   flex: 0 0 auto;
   padding-right: ${p => config(p).gutterWidth / 2}rem;
@@ -63,10 +63,9 @@ const Col = styled.div`
 
 Col.displayName = 'Col'
 
-Col.propTypes = {
-  ...DimensionPropTypes,
+Col.propTypes = Object.assign(DimensionPropTypes, {
   reverse: PropTypes.bool,
   children: PropTypes.node
-}
+})
 
 export default Col

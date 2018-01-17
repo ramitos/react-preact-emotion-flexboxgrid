@@ -1,15 +1,15 @@
 
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import emotion from 'preact-emotion'
 
 import config, { DIMENSION_NAMES } from '../config'
 
 const ModificatorType = PropTypes.oneOf(DIMENSION_NAMES)
 
-const Row = styled.div`
+const Row = emotion('div')`
   box-sizing: border-box;
   display: flex;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
   margin-right: ${p => config(p).gutterWidth / 2 * -1}rem;

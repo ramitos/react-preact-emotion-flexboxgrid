@@ -1,10 +1,10 @@
 
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import emotion, { css } from 'preact-emotion'
 
 import config, { DIMENSION_NAMES } from '../config'
 
-const Grid = styled.div`
+const Grid = emotion('div')`
   margin-right: auto;
   margin-left: auto;
 

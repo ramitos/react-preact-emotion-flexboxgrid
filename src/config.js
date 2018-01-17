@@ -1,5 +1,5 @@
 
-import { css } from 'styled-components'
+import { css } from 'preact-emotion'
 
 const THEME_CONF = 'flexboxgrid'
 export const BASE_CONF = {
@@ -25,18 +25,10 @@ const makeCacheId = props => JSON.stringify((props.theme && props.theme[THEME_CO
 const resolveConfig = props => {
   const themeConf = (props.theme && props.theme[THEME_CONF]) || {}
 
-  const conf = {
-    ...BASE_CONF,
-    ...themeConf,
-    container: {
-      ...BASE_CONF.container,
-      ...themeConf.container
-    },
-    breakpoints: {
-      ...BASE_CONF.breakpoints,
-      ...themeConf.breakpoints
-    }
-  }
+  const conf = Object.assign(BASE_CONF, themeConf, {
+    container: Object.assign(BASE_CONF.container, themeConf.container),
+    breakpoints: Object.assign(BASE_CONF.breakpoints, themeConf.breakpoints)
+  })
 
   conf.media = Object.keys(conf.breakpoints).reduce((media, breakpoint) => {
     const breakpointWidth = conf.breakpoints[breakpoint]

@@ -1,9 +1,13 @@
 {
-  "presets": ["es2015", "react"],
-  "plugins": ["transform-object-rest-spread", "styled-components"],
+  "sourceMaps": "inline",
+  "plugins": [
+    "emotion"
+  ],
   "env": {
-    "development": {
-      "presets": ["react-hmre"]
+    "test": {
+      "presets": [
+        "react-app"
+      ]
     }
   }
 }
